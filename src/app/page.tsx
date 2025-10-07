@@ -1,10 +1,12 @@
 "use client";
-import { Copy } from "lucide-react";
+import { Copy, Moon, Sun } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";
 
+import { useTheme } from "next-themes";
 import github_logo_white from "../../public/github-mark-white.png";
+import github_logo from "../../public/github-mark.png";
 import next_logo from "../../public/next.svg";
 import next_logo2 from "../../public/next2.png";
 
@@ -23,11 +25,12 @@ export default function Home() {
 
 /* ---------------- HEADER ---------------- */
 function Header() {
-  // 다크모드 토글 next-themes 사용 시 연결 (providers.tsx에 ThemeProvider 세팅되어 있어야 함)
-  // const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
   const handleToggle = () => {
     document.body.classList.add("theme-transition");
-    // setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === "dark" ? "light" : "dark");
+
     setTimeout(() => document.body.classList.remove("theme-transition"), 300);
   };
 
@@ -35,7 +38,11 @@ function Header() {
     <header className="sticky top-0 z-10 border-b border-border bg-background/70 backdrop-blur transition-colors duration-300 supports-[backdrop-filter]:bg-background/50">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3 text-primary">
-          <Image src={next_logo} alt="vite" className="h-5 w-auto" />
+          <Image
+            src={next_logo}
+            alt="Next.js Logo"
+            className="h-5 w-auto brightness-0 dark:invert transition-all"
+          />
           <span className="font-semibold">Next.js Starter</span>
         </div>
 
@@ -51,8 +58,7 @@ function Header() {
           </a>
         </nav>
 
-        {/* next-themes 연결 시 주석 해제 */}
-        {/* <button
+        <button
           onClick={handleToggle}
           className="inline-flex items-center justify-center rounded-md p-2 transition-colors hover:bg-accent"
           title="Toggle theme"
@@ -62,7 +68,7 @@ function Header() {
           ) : (
             <Moon className="h-4 w-4 text-foreground" />
           )}
-        </button> */}
+        </button>
       </div>
     </header>
   );
@@ -70,6 +76,8 @@ function Header() {
 
 /* ---------------- HERO ---------------- */
 function Hero() {
+  const { theme } = useTheme();
+
   return (
     <section className="relative transition-colors duration-300">
       <div className="absolute inset-0 -z-10 opacity-40">
@@ -112,7 +120,7 @@ function Hero() {
           <HeroButton
             href="https://github.com/minijae011030/next-template"
             text="GitHub"
-            icon={github_logo_white}
+            icon={theme === "dark" ? github_logo_white : github_logo}
           />
         </div>
       </div>
