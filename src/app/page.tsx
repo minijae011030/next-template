@@ -1,3 +1,4 @@
+import About from "@/components/home/About";
 import Features from "@/components/home/Features";
 import GettingStarted from "@/components/home/GettingStarted";
 import Hero from "@/components/home/Hero";
@@ -10,6 +11,7 @@ export default function Home() {
       <Features />
       <GettingStarted />
       <TechStack />
+      <About />
     </div>
   );
 }

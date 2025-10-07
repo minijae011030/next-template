@@ -87,7 +87,7 @@ function HeroButton({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 font-medium transition-colors hover:bg-accent"
+      className="text-primary inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 font-medium transition-colors hover:bg-accent"
     >
       {icon && <Image src={icon} alt="" className="-ml-2 h-6 w-6" />}
       {text}

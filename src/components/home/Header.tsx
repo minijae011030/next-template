@@ -31,20 +31,23 @@ function Header() {
         </div>
 
         <nav className="hidden items-center gap-6 text-sm text-muted-foreground sm:flex">
-          <a href="#features" className="hover:text-foreground">
+          <a href="#features" className="text-primary hover:text-foreground">
             Features
           </a>
-          <a href="#getting-started" className="hover:text-foreground">
+          <a
+            href="#getting-started"
+            className="text-primary hover:text-foreground"
+          >
             Getting Started
           </a>
-          <a href="#stack" className="hover:text-foreground">
+          <a href="#stack" className="text-primary hover:text-foreground">
             Tech Stack
           </a>
         </nav>
 
         <button
           onClick={handleToggle}
-          className="inline-flex items-center justify-center rounded-md p-2 transition-colors hover:bg-accent"
+          className="inline-flex items-center justify-center rounded-md p-2 transition-colors bg-accent"
           title="Toggle theme"
         >
           {mounted ? (
