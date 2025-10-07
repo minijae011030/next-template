@@ -25,9 +25,9 @@ function Header() {
           <Image
             src={next_logo}
             alt="Next.js Logo"
-            className="h-5 w-auto brightness-0 dark:invert transition-all"
+            className="h-3 w-auto brightness-0 dark:invert transition-all"
           />
-          <span className="font-semibold">Next.js Starter</span>
+          <span className="font-semibold mr-10">Next.js Starter</span>
         </div>
 
         <nav className="hidden items-center gap-6 text-sm text-muted-foreground sm:flex">
